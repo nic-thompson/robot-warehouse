@@ -80,30 +80,4 @@ class Robot {
   }
 }
 
-const robot = new Robot();
-
-// Test movement
-console.log(`Initial position: (${robot.x}, ${robot.y})`);
-robot.move('N');
-console.log(`After moving north: (${robot.x}, ${robot.y})`);
-robot.move('E');
-console.log(`After moving east: (${robot.x}, ${robot.y})`);
-robot.move('S');
-console.log(`After moving south: (${robot.x}, ${robot.y})`);
-robot.move('W');
-console.log(`After moving west: (${robot.x}, ${robot.y})`);
-robot.move('W');
-console.log(`After moving west: (${robot.x}, ${robot.y})`);
-
-// Test crate grabbing
-robot.grab(); // Grabbing crate
-robot.grab(); // Crate already grabbed
-robot.drop(); // Dropping crate
-robot.drop(); // No crate to drop
-
-// Test diagonal movement
-console.log(`Initial position: (${robot.x}, ${robot.y})`);
-robot.move('NE');
-console.log(`After moving NE: (${robot.x}, ${robot.y})`);
-robot.move('SW');
-console.log(`After moving SW: (${robot.x}, ${robot.y})`);
+export { Robot };
