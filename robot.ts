@@ -32,6 +32,30 @@ class Robot {
           this.x--;
         }
         break;
+      case 'NE':
+        if (this.y < 10 && this.x < 10) {
+          this.y++;
+          this.x++;
+        }
+        break;
+      case 'SE':
+        if (this.y > 1 && this.x < 10) {
+          this.y--;
+          this.x++;
+        }
+        break;
+      case 'SW':
+        if (this.y > 1 && this.x > 1) {
+          this.y--;
+          this.x--;
+        }
+        break;
+      case 'NW':
+        if (this.y < 10 && this.x > 1) {
+          this.y++;
+          this.x--;
+        }
+        break;
       default:
         console.log('Invalid command');
     }
@@ -76,3 +100,10 @@ robot.grab(); // Grabbing crate
 robot.grab(); // Crate already grabbed
 robot.drop(); // Dropping crate
 robot.drop(); // No crate to drop
+
+// Test diagonal movement
+console.log(`Initial position: (${robot.x}, ${robot.y})`);
+robot.move('NE');
+console.log(`After moving NE: (${robot.x}, ${robot.y})`);
+robot.move('SW');
+console.log(`After moving SW: (${robot.x}, ${robot.y})`);
