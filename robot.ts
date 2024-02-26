@@ -1,11 +1,13 @@
 class Robot {
   x: number;
   y: number;
+  hasCrate: boolean;
 
   constructor() {
     // Initialise the robot's position to the center of the grid
     this.x = 5;
     this.y = 5;
+    this.hasCrate = false;
   }
 
   move(command: string) {
@@ -34,10 +36,29 @@ class Robot {
         console.log('Invalid command');
     }
   }
+
+  grab() {
+    if (!this.hasCrate) {
+      console.log('Grabbing crate');
+      this.hasCrate = true;
+    } else {
+      console.log('Crate already grabbed');
+    }
+  }
+
+  drop() {
+    if (this.hasCrate) {
+      console.log('Dropping crate');
+      this.hasCrate = false;
+    } else {
+      console.log('No crate to drop');
+    }
+  }
 }
 
-// Test movement
 const robot = new Robot();
+
+// Test movement
 console.log(`Initial position: (${robot.x}, ${robot.y})`);
 robot.move('N');
 console.log(`After moving north: (${robot.x}, ${robot.y})`);
@@ -49,3 +70,9 @@ robot.move('W');
 console.log(`After moving west: (${robot.x}, ${robot.y})`);
 robot.move('W');
 console.log(`After moving west: (${robot.x}, ${robot.y})`);
+
+// Test crate grabbing
+robot.grab(); // Grabbing crate
+robot.grab(); // Crate already grabbed
+robot.drop(); // Dropping crate
+robot.drop(); // No crate to drop
